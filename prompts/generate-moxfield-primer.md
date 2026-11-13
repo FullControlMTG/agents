@@ -10,6 +10,9 @@ This skill analyzes a Magic: The Gathering decklist (provided as plain text or a
 
 ## Workflow
 
+### Step 0: Writing Style
+You must write in a factual, descriptive writing style that does not include flowery language that attempts to do a salesman job for the deck. Avoid listing positive adjectives everywhere when you write content, only describe things that are notably unique. 
+
 ### Step 1: Input Gathering & Deck Analysis
 1. **Check for Decklist:** Ensure the user has provided either a raw text decklist or a Moxfield link. If missing, prompt the user to provide one along with their target format (e.g., Commander/EDH, cEDH, Modern, Pauper) and intended power level/bracket if not obvious.
 2. **Analyze the List:** Identify:
@@ -29,7 +32,7 @@ Moxfield uses a custom flavor of Markdown. You MUST adhere to these exact syntax
 - **Clean List Formatting:** Avoid stray empty bullet points or broken line wraps inside list items. Keep bullet formatting clean (`- [[Card Name]] — Explanation`).
 
 ### Step 3: Primer Structure & Required Sections
-Generate the primer, including the following sections, tailored to the depth and complexity of the deck. Each section should assume the reader has a high level knowledge of MTG, and thus should only contain notable interactions or synergies that are above standard deck operation. E.g. don't cover typical ramp cards, but explain why the architecture of this deck or its commander makes certain cards perform well above their baseline. Do not cite too many cards, just those that are critical to understanding how the deck plays and why. 
+Generate the primer, including the following sections, tailored to the depth and complexity of the deck. Each section should assume the reader has a high level knowledge of MTG, and thus should only contain notable interactions or synergies that are above standard deck operation. E.g. don't cover typical ramp cards, but explain why the architecture of this deck or its commander makes certain cards perform well above their baseline. Do not cite too many cards, just those that are critical to understanding how the deck plays and why. When explaining why we use cards, cite what situations they are strong in, or what result we get from running them, rather than rewording what they do an explaining why that effect is a good thing.
 
 1. **Header Banner (`===center`)**
    - A decorative top and bottom border made of alternating `[[symbol:x]]` tags matching the deck's color identity (approx. 30–36 symbols wide).
@@ -37,7 +40,7 @@ Generate the primer, including the following sections, tailored to the depth and
    - Centered art crop image of the Commander or flagship card. Use Scryfall art crop links to select a proper card, or use the following image link of a Black Lotus as a template: https://cards.scryfall.io/art_crop/front/b/d/bd8fa327-dd41-4737-8f19-2cf5eb1f7cdd.jpg?1783939332
 2. **Introduction & Overview**
    - Explanation of why the commander/archetype is exciting, its core mechanical identity, and what sort of gameplan it prefers (control/aggro/combo/midrange and subcategories, etc).
-   - Optional placeholder section for external references/variants (e.g., budget versions or related primers), or other relevant links the user might have.
+   - Optional placeholder section for external references/variants (e.g., budget versions or related primers), or other relevant links the user might have. Do NOT relate to the moxfield list, as this primer will be going on that page. 
 3. **Gameplan & Mulligan Strategy**
    - **Early Game (Turns 1–2):** Ramp, setup, and ideal opening hands (what to keep vs. what to ship). Use the context of the deck's gameplan (aggro vs combo, etc) to explain what is risky and what is desired in an opening hand. When discussing opening hands, talk about the TYPES of cards we are looking to have, don't just list opening hand examples.
    - **Mid Game (Turns 3–4, if applicable):** Engine assembly, value generation, and navigating interaction. How does the deck recover from a win attempt or push being stopped?
@@ -45,6 +48,7 @@ Generate the primer, including the following sections, tailored to the depth and
 4. **Win Conditions & Combos**
    - Step-by-step breakdowns of every combo and primary win line in the deck.
    - Format: `- [[Card A]] + [[Card B]] = Clear explanation of prerequisites, mana requirements, execution steps, and payoff.`
+   - Note that decks will often run layered combos, meaning that combos may have interchangeable pieces. If the result of the combo is the same no matter which cards we swap in, we can keep things as a one-liner, otherwise we can have a line for each combo variant.
 5. **Important Cards & Synergy Packages**
    - Group key non-combo cards by role (e.g., **Value Engines**, **Key Tutors**, **Protection & Silence Effects**, **Unique Tech**). Explain *why* they are vital rather than just reading the card text.
 6. **Notable Includes**
